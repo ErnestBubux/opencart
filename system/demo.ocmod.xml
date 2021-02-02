@@ -1,0 +1,26 @@
+<modification>
+<name>Remove add to card, product compare and wishlist</name>
+<version>3.x</version>
+<author>Ernest</author>
+<code>remove-elem-prod</code>
+<link>ernest.com</link>
+<!-- Remove "Compare this Product" and "Add to Wish List" from Category Page. -->
+<file path="catalog/view/theme/*/template/product/category.twig">
+<operation>
+<search><![CDATA[<button type="button" onclick="cart.add('{{ product.product_id }}', '{{ product.minimum }}');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">{{ button_cart }}</span></button>]]></search>
+<add position="replace"><![CDATA[]]></add>
+</operation>
+<operation>
+<search><![CDATA[<button type="button" data-toggle="tooltip" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');"><i class="fa fa-heart"></i></button>]]></search>
+<add position="replace"><![CDATA[]]></add>
+</operation>
+<operation>
+<search><![CDATA[<button type="button" data-toggle="tooltip" title="{{ button_compare }}" onclick="compare.add('{{ product.product_id }}');"><i class="fa fa-exchange"></i></button>]]></search>
+<add position="replace"><![CDATA[]]></add>
+</operation>
+<operation>
+<search><![CDATA[<div class="form-group"><a href="{{ compare }}" id="compare-total" class="btn btn-link">{{ text_compare }}</a></div>]]></search>
+<add position="replace"><![CDATA[]]></add>
+</operation>
+</file>
+</modification>
